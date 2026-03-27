@@ -15,19 +15,19 @@ DETECT:
   HALF_PRECISION: false
   OVERWRITE: true
   YOLO:
-    CONF: 0.25
-    IMGSIZE: 640
+    CONF: 0.15        # Gesenkt von 0.25: mehr Detektionen, weniger Missed (bes. Fußgänger)
+    IMGSIZE: 1280     # Erhöht von 640: bessere Erkennung kleiner Objekte
     IOU: 0.45
-    WEIGHTS: yolov8s
+    WEIGHTS: yolov8x  # Erhöht von yolov8s: deutlich mehr Kapazität
 
 TRACK:
   PATHS: []
   IOU:
-    SIGMA_H: 0.42
-    SIGMA_IOU: 0.38
-    SIGMA_L: 0.27
-    T_MIN: 5
-    T_MISS_MAX: 51
+    SIGMA_H: 0.45     # Erhöht von 0.42
+    SIGMA_IOU: 0.35   # Gesenkt von 0.38
+    SIGMA_L: 0.20     # Gesenkt von 0.27: Track früher starten
+    T_MIN: 3          # Gesenkt von 5: Track früher als valide ansehen
+    T_MISS_MAX: 40    # Gesenkt von 51: weniger Ghost-Tracks
   OVERWRITE: true
 
 LOG:

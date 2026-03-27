@@ -169,7 +169,7 @@ class YoloDetector(ObjectDetector, Filter[Frame, DetectedFrame]):
             device=0 if torch.cuda.is_available() else "cpu",
             stream=False,
             verbose=False,
-            agnostic_nms=True,
+            agnostic_nms=False,
         )
 
         for prediction in model_predictions:
@@ -203,7 +203,7 @@ class YoloDetector(ObjectDetector, Filter[Frame, DetectedFrame]):
             device=0 if torch.cuda.is_available() else "cpu",
             stream=False,
             verbose=False,
-            agnostic_nms=True,
+            agnostic_nms=False,
         )
         log.info(f"YOLO model '{model_name}' loaded and ready for inference.'")
 
